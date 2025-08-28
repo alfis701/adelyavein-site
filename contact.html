@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adelya Vein | Контакты</title>
+    <meta name="description" content="Свяжитесь с Adelya Vein. Контактная информация, электронная почта и ссылки на социальные сети.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Font Awesome with only needed icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Google Fonts with display=swap -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Стили для управления видимостью контента -->
+    <style>
+    .fonts-loading {
+        opacity: 0;
+    }
+    .fonts-loaded {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    /* Стили для контактной информации */
+    .contact-details a {
+        color: #a67f78;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .contact-details a:hover {
+        color: #8a615a;
+        text-decoration: underline;
+    }
+    .email-link {
+        word-break: break-all;
+    }
+    </style>
+</head>
+<body class="fonts-loading">
+    <header>
+        <div class="header-container">
+            <h1>Adelya Vein</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">Об авторе</a></li>
+                    <li><a href="books.html">Книги</a></li>
+                    <li><a href="contact.html" class="active">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
+                <span class="sr-only">Меню</span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-info animated">
+            <h2>Свяжитесь со мной</h2>
+            <p>Я всегда рада обратной связи от читателей. Вы можете связаться со мной через электронную почту или социальные сети.</p>
+            
+            <div class="contact-details">
+                <p><strong>Email:</strong> <a href="mailto:lina.pozova.06@mail.ru" class="email-link">lina.pozova.06@mail.ru</a></p>
+                <div class="social-contacts">
+                    <p><strong>Социальные сети:</strong></p>
+                    <div class="social-buttons">
+                        <a href="#" onclick="return false;" aria-label="ВКонтакте">
+                            <i class="fab fa-vk" aria-hidden="true"></i> ВКонтакте
+                        </a>
+                        <a href="#" onclick="return false;" aria-label="Telegram">
+                            <i class="fab fa-telegram" aria-hidden="true"></i> Telegram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="ВКонтакте" onclick="return false;"><i class="fab fa-vk" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Telegram" onclick="return false;"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+            </div>
+            <p>&copy; 2025 Adelya Vein. Все права сохранены.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts at the end of body -->
+    <script src="script.js"></script>
+    <script>
+    // Упрощенная логика загрузки шрифтов
+    document.addEventListener('DOMContentLoaded', function() {
+        // Используем современный API если доступен, иначе fallback
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function() {
+                document.body.classList.remove('fonts-loading');
+                document.body.classList.add('fonts-loaded');
+            }).catch(function() {
+                // В случае ошибки все равно показываем контент
+                showContent();
+            });
+        } else {
+            // Fallback: показываем контент после короткой задержки
+            setTimeout(showContent, 300);
+        }
+        
+        // Резервный таймаут на случай проблем
+        setTimeout(showContent, 2000);
+        
+        function showContent() {
+            document.body.classList.remove('fonts-loading');
+            document.body.classList.add('fonts-loaded');
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adelya Vein | Главная</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Font Awesome with only needed icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Google Fonts with display=swap -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Стили для управления видимостью контента -->
+    <style>
+    .fonts-loading {
+        opacity: 0;
+    }
+    .fonts-loaded {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    </style>
+</head>
+<body class="fonts-loading">
+    <header>
+        <div class="header-container">
+            <h1>Adelya Vein</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="about.html">Об авторе</a></li>
+                    <li><a href="books.html">Книги</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
+                <span class="sr-only">Меню</span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content animated">
+                <h2>Привет, я готический писатель Аделия Вейн</h2>
+                <p>Погрузитесь в мир мрачной элегантности, где каждая история - это путешествие в глубины человеческой души</p>
+                <a href="books.html" class="cta-button">Открыть книги</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card animated">
+                <div class="feature-icon">
+                    <i class="fas fa-book-open" aria-hidden="true"></i>
+                </div>
+                <h3>Готическая проза</h3>
+                <p>Погрузитесь в атмосферу холодных стен академий и бесконечных дождей</p>
+            </div>
+            
+            <div class="feature-card animated">
+                <div class="feature-icon">
+                    <i class="fas fa-feather-alt" aria-hidden="true"></i>
+                </div>
+                <h3>Долгие разговоры и размышления героев</h3>
+                <p>Исследуйте сложные внутренние миры любимого персонажа</p>
+            </div>
+            
+            <div class="feature-card animated">
+                <div class="feature-icon">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </div>
+                <h3>Мистические элементы</h3>
+                <p>Откройте дверь в мир, где размышления переплетается с мифами и сверхъестественными явлениями</p>
+            </div>
+			
+			<div class="feature-card animated">
+				<div class="feature-icon">
+					<i class="fas fa-pen-nib" aria-hidden="true"></i>
+				</div>
+				<h3>Уникальный стиль</h3>
+				<p>Простой слог с использованием просторечных слов и терминами</p>
+			</div>
+        </section>
+
+        <section class="news-preview">
+            <h2><i class="fas fa-newspaper" aria-hidden="true"></i> Последние новости</h2>
+            
+            <article class="news-item">
+                <time class="news-date" datetime="1984-10-15">22.08.2025</time>
+                <h3 class="news-title">Анонс новой книги "Бумажный дракон"</h3>
+                <p class="news-excerpt">Материалы используемы во время написания</p>
+            </article>
+            
+            <article class="news-item">
+                <time class="news-date" datetime="2077-09-03">28.08.2025</time>
+                <h3 class="news-title">Разбор философии великих мыслителей</h3>
+                <p class="news-excerpt">Откуда брать вдохновение, когда ты уставший студент</p>
+            </article>
+            
+            <article class="news-item">
+                <time class="news-date" datetime="0777-08-20">28.08.2025</time>
+                <h3 class="news-title">Авторский вечер в долгих размышлениях</h3>
+                <p class="news-excerpt">Приглашаю всех подумать</p>
+            </article>
+        </section>
+
+        <section class="quote-section">
+            <blockquote class="quote">
+                <p>"Это мечтатель. Ты мечтатель"</p>
+                <footer class="author">— Аделия Вейн, <cite>"Бумажный дракон"</cite></footer>
+            </blockquote>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="ВКонтакте" onclick="return false;"><i class="fab fa-vk" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Telegram" onclick="return false;"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+            </div>
+            <p>&copy; 2025 Adelya Vein. Все права сохранены.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts at the end of body -->
+    <script src="script.js"></script>
+    <script>
+    // Упрощенная логика загрузки шрифтов
+    document.addEventListener('DOMContentLoaded', function() {
+        // Используем современный API если доступен, иначе fallback
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function() {
+                document.body.classList.remove('fonts-loading');
+                document.body.classList.add('fonts-loaded');
+            }).catch(function() {
+                // В случае ошибки все равно показываем контент
+                showContent();
+            });
+        } else {
+            // Fallback: показываем контент после короткой задержки
+            setTimeout(showContent, 300);
+        }
+        
+        // Резервный таймаут на случай проблем
+        setTimeout(showContent, 2000);
+        
+        function showContent() {
+            document.body.classList.remove('fonts-loading');
+            document.body.classList.add('fonts-loaded');
+        }
+    });
+    </script>
+</body>
+</html>

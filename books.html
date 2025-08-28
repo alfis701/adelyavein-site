@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adelya Vein | Книги</title>
+    <meta name="description" content="Книги Adelya Vein: готическая проза и психологические драмы. «Ткач Судеб», «Бумажный дракон» и другие произведения.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Font Awesome with only needed icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Google Fonts with display=swap -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Стили для управления видимостью контента -->
+    <style>
+    .fonts-loading {
+        opacity: 0;
+    }
+    .fonts-loaded {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    /* Локальные стили для ленивой загрузки изображений */
+    .book-cover {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    .book-cover.loaded {
+        opacity: 1;
+    }
+    /* Красивая анимация для кнопки "Читать далее" */
+    .book-description {
+        position: relative;
+        overflow: hidden;
+        transition: max-height 0.5s ease, opacity 0.4s ease;
+    }
+    .book-description.collapsed {
+        max-height: 9em;
+        mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    }
+    .book-description.expanded {
+        max-height: 1000px;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+    .read-more-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 15px 0;
+        position: relative;
+    }
+    .read-more-wrapper:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(166, 127, 120, 0.3), transparent);
+        z-index: 0;
+    }
+    .read-more-btn {
+        background: rgba(166, 127, 120, 0.1);
+        border: 1px solid rgba(166, 127, 120, 0.3);
+        border-radius: 20px;
+        color: #a67f78;
+        cursor: pointer;
+        padding: 8px 20px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        backdrop-filter: blur(5px);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .read-more-btn:hover {
+        background: rgba(166, 127, 120, 0.2);
+        border-color: #a67f78;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(166, 127, 120, 0.2);
+    }
+    .read-more-btn i {
+        transition: transform 0.3s ease;
+    }
+    .read-more-btn[aria-expanded="true"] i {
+        transform: rotate(180deg);
+    }
+    .buy-button {
+        margin-top: 15px;
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: #a67f78;
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        text-align: center;
+    }
+    .buy-button:hover {
+        background-color: #8a615a;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(138, 97, 90, 0.3);
+    }
+    </style>
+</head>
+<body class="fonts-loading">
+    <header>
+        <div class="header-container">
+            <h1>Adelya Vein</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">Об авторе</a></li>
+                    <li><a href="books.html" class="active">Книги</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
+                <span class="sr-only">Меню</span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="books-listing">
+            <h2 class="animated">Мои книги</h2>
+            
+            <div class="book-item animated">
+                <img 
+                    src="images/book1.jpg" 
+                    alt="Обложка книги Ткач Судеб" 
+                    class="book-cover"
+                    loading="lazy"
+                    width="300"
+                    height="450"
+                    onload="this.classList.add('loaded')"
+                >
+                <div class="book-details">
+                    <h3>Ткач Судеб</h3>
+                    <div class="book-description collapsed">
+                        <p>Под покровом глубокой ночи, освещенной лишь холодным лунным светом, в уединенной горной академии разворачивается драма. Четыре юноши, чьи пути пересеклись в этом загадочном месте, оказываются втянуты в водоворот тайн, страхов и неожиданной связи. Главный герой, замкнутый и привыкший к одиночеству, ступает на неизведанную территориию, где каждое слово и действие могут стать решающим.</p>
+                        <p>В тишине ночных бесед, среди теней прошлого и необъяснимых видений, герои сталкиваются с играми разума, которые заставляют их искать ответы: кто здесь жертва, а кто палач? Какую тайну хранит академия "Гранат"?</p>
+                        <p>"Ткач судеб" – это история о хрупкости доверия и силе предательства, о том, как страх может парализовать, а смелость – спасти. Это рассказ о поиске света в самых темных уголках человеческой души.</p>
+                    </div>
+                    <div class="read-more-wrapper">
+                        <button class="read-more-btn" aria-expanded="false">
+                            <span>Читать далее</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <a href="https://litnet.com/ru/book/tkach-sudeb-b544955" class="buy-button" aria-label="Прочитать книгу 'Ткач Судеб' на Litnet" rel="noopener noreferrer">
+                        <i aria-hidden="true"></i> Перейти на Litnet
+                    </a>
+                </div>
+            </div>
+            
+            <div class="book-item animated">
+                <img 
+                    src="images/book2.jpg" 
+                    alt="Обложка книги Бумажный дракон" 
+                    class="book-cover"
+                    loading="lazy"
+                    width="300"
+                    height="450"
+                    onload="this.classList.add('loaded')"
+                >
+                <div class="book-details">
+                    <h3>Бумажный дракон</h3>
+                    <div class="book-description collapsed">
+                        <p>В уединенной академии, где у каждого ученика есть своя тайна, произошло необъяснимое. После ночного происшествия один из воспитанников теряет глаз и обретает новое, пугающее имя — Полифем.</p>
+                        <p>Он стал жертвой существа, способного принимать облик любого человека. Теперь ему предстоит жить в страхе: учитель это или монстр? Друг это или приманка? Даже стены древней академии, кажется, шепчут ему чужие мысли.</p>
+                        <p>Пока друзья пытаются помочь, не подозревая об истинной опасности, главный герой понимает — чтобы выжить, нужно заплатить ужасную цену. Или найти того, кто уже заплатил.</p>
+                    </div>
+                    <div class="read-more-wrapper">
+                        <button class="read-more-btn" aria-expanded="false">
+                            <span>Читать далее</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <a href="https://litnet.com/ru/book/bumazhnyi-drakon-b546691" class="buy-button" aria-label="Прочитать книгу 'Бумажный дракон' на Litnet" rel="noopener noreferrer">
+                        <i aria-hidden="true"></i> Перейти на Litnet
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="ВКонтакте" onclick="return false;"><i class="fab fa-vk" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Telegram" onclick="return false;"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+            </div>
+            <p>&copy; 2025 Adelya Vein. Все права сохранены.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts at the end of body -->
+    <script src="script.js"></script>
+    <script>
+    // Упрощенная логика загрузки шрифтов
+    document.addEventListener('DOMContentLoaded', function() {
+        // Используем современный API если доступен, иначе fallback
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function() {
+                document.body.classList.remove('fonts-loading');
+                document.body.classList.add('fonts-loaded');
+            }).catch(function() {
+                // В случае ошибки все равно показываем контент
+                showContent();
+            });
+        } else {
+            // Fallback: показываем контент после короткой задержки
+            setTimeout(showContent, 300);
+        }
+        
+        // Резервный таймаут на случай проблем
+        setTimeout(showContent, 2000);
+        
+        function showContent() {
+            document.body.classList.remove('fonts-loading');
+            document.body.classList.add('fonts-loaded');
+        }
+
+        // Красивая анимация для кнопок "Читать далее"
+        const readMoreButtons = document.querySelectorAll('.read-more-btn');
+        readMoreButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const description = this.closest('.book-details').querySelector('.book-description');
+                const isExpanded = description.classList.toggle('collapsed');
+                description.classList.toggle('expanded');
+                
+                this.setAttribute('aria-expanded', !isExpanded);
+                const textSpan = this.querySelector('span');
+                textSpan.textContent = isExpanded ? 'Читать далее' : 'Свернуть';
+                
+                // Плавная прокрутка к expanded контенту
+                if (!isExpanded) {
+                    setTimeout(() => {
+                        description.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 300);
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adelya Vein | Об авторе</title>
+    <meta name="description" content="Официальная страница автора Adelya Vein. Исследую грань между меланхолией и надеждой через готическую прозу и психологическую глубину.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Font Awesome with only needed icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Google Fonts with display=swap -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Стили для управления видимостью контента -->
+    <style>
+    .fonts-loading {
+        opacity: 0;
+    }
+    .fonts-loaded {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    /* Локальные стили для ленивой загрузки изображений */
+    .author-image img {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    .author-image img.loaded {
+        opacity: 1;
+    }
+    /* Стили для кнопок соцсетей */
+    .social-button {
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        font-size: 1.5rem;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+    }
+    .social-button:hover {
+        color: #a67f78; /* Цвет при наведении */
+    }
+    </style>
+</head>
+<body class="fonts-loading">
+    <header>
+        <div class="header-container">
+            <h1>Adelya Vein</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html" class="active">Об авторе</a></li>
+                    <li><a href="books.html">Книги</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
+                <span class="sr-only">Меню</span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-content">
+            <h2>Об авторе</h2>
+            <div class="author-bio">
+                <div class="author-image animated">
+                    <img 
+                        src="images/avatar.jpg" 
+                        alt="Портрет Adelya Vein" 
+                        loading="lazy"
+                        width="400"
+                        height="400"
+                        onload="this.classList.add('loaded')"
+                    >
+                </div>
+                
+                <div class="bio-text animated">
+                    <p>Здравствуйте! Я начинающий писатель, который посвящает себя изучению человеческой психики, влиянию прошлого и сложности межличностных отношений. Мои произведения часто исследуют тонкую грань между меланхолией и надеждой, фокусируясь на темах одиночества, чувства вины, возможности искупления и поисках света даже в самые мрачные моменты жизни персонажа.</p>
+                    <p>Источниками моего вдохновения служат готическая атмосфера, мифологические сюжеты (в частности, славянские) и тонкие эмоциональные нюансы, придающие персонажам глубину. Я экспериментирую с нарративными техниками, сочетая реалистичное изображение с мистическими элементами.</p>
+                    <p>В свободное время я углубляюсь в историю, анализирую произведения искусства (особенно символизм в живописи). Моя вера заключается в том, что даже в самых темных историях скрывается искра света, если взглянуть на них с должным вниманием.</p>
+                </div>
+            </div>
+
+            <div class="inspiration animated">
+                <h3>Источники вдохновения</h3>
+                <div class="inspiration-items">
+                    <div class="inspiration-item">
+                        <div class="inspiration-icon">
+                            <i class="fas fa-landmark" aria-hidden="true"></i>
+                        </div>
+                        <h4>Готическая архитектура</h4>
+                        <p>Величественные соборы и мрачные замки питают моё воображение</p>
+                    </div>
+                    
+                    <div class="inspiration-item">
+                        <div class="inspiration-icon">
+                            <i class="fas fa-book-dead" aria-hidden="true"></i>
+                        </div>
+                        <h4>Мифология</h4>
+                        <p>Славянские легенды и мифы народов мира</p>
+                    </div>
+                    
+                    <div class="inspiration-item">
+                        <div class="inspiration-icon">
+                            <i class="fas fa-palette" aria-hidden="true"></i>
+                        </div>
+                        <h4>Символизм в искусстве</h4>
+                        <p>Картины, полные скрытых смыслов и аллегорий</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="ВКонтакте" onclick="return false;"><i class="fab fa-vk" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Telegram" onclick="return false;"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+            </div>
+            <p>&copy; 2025 Adelya Vein. Все права сохранены.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts at the end of body -->
+    <script src="script.js"></script>
+    <script>
+    // Упрощенная логика загрузки шрифтов
+    document.addEventListener('DOMContentLoaded', function() {
+        // Используем современный API если доступен, иначе fallback
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function() {
+                document.body.classList.remove('fonts-loading');
+                document.body.classList.add('fonts-loaded');
+            }).catch(function() {
+                // В случае ошибки все равно показываем контент
+                showContent();
+            });
+        } else {
+            // Fallback: показываем контент после короткой задержки
+            setTimeout(showContent, 300);
+        }
+        
+        // Резервный таймаут на случай проблем
+        setTimeout(showContent, 2000);
+        
+        function showContent() {
+            document.body.classList.remove('fonts-loading');
+            document.body.classList.add('fonts-loaded');
+        }
+    });
+    </script>
+</body>
+</html>
